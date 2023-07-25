@@ -24,20 +24,20 @@ const about = () => {
                 Biography
               </h2>
               <p className="text-justify mt-2 font-medium">
-                Hi, I'm Chathurka, a Frontend developer and UI/UX designer with
+                Hi, I am Chathurka, a Frontend developer and UI/UX designer with
                 a passion for creating beautiful, functional, and user-centered
                 digital experiences. With more than 2 years of experience in the
                 field. I am always looking for new and innovative ways to bring
-                my clients' visions to life.
+                my clients visions to life.
               </p>
               <p className="text-justify my-3 font-medium">
                 I believe that design is about more than just making things look
-                pretty. it's about solving problems and creating intuitive,
+                pretty. its about solving problems and creating intuitive,
                 enjoyable experiences for users
               </p>
 
               <p className="text-justif font-medium mt-2">
-                Whether I'm working on a website, mobile app, or other digital
+                Whether Im working on a website, mobile app, or other digital
                 product, I bring my commitment to design excellence and
                 user-centered thinking to every project I work on. I look
                 forward to the opportunity to bring my skills and passion to
@@ -46,7 +46,7 @@ const about = () => {
             </div>
             <div className="col-span-3 flex flex-col justify-center items-center ">
               <div className="flex p-5 w-[60%] border w-100 border-solid rounded-2xl border-dark justify-center items-center">
-                <Image src={profilepic} className="rounded-2xl " />
+                <Image alt="profile" src={profilepic} className="rounded-2xl " />
               </div>
             </div>
             {/* <div className="col-span-1 flex flex-col justify-start ">
