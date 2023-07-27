@@ -1,11 +1,39 @@
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import profilepic from "../../public/images/profile/profile.png";
 import Image from "next/image";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+
+const AnimatedNumbers = ({value}) =>{
+
+  const ref = useRef(null);
+
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {duration: 4000});
+  const isInView = useInView(ref);
+
+useEffect(() =>{
+  if(isInView){
+    motionValue.set(value);
+  }
+},[isInView, value, motionValue])
+
+useEffect(()=>{
+  springValue.on("change", (latest) =>{
+    // console.log(latest);
+    if(ref.current && latest.toFixed(0) <= value){
+      ref.current.textContent = latest.toFixed(0);
+    }
+  })
+},[springValue, value])
+
+  return <span ref={ref}></span>
+}
 
 const about = () => {
+  
   return (
     <>
       <Head>
@@ -23,20 +51,20 @@ const about = () => {
               <h2 className="text-lg font-bold text-dark/75 uppercase">
                 Biography
               </h2>
-              <p className="text-justify mt-2 font-medium">
+              <p className="text-justify mt-2 font-normal">
                 Hi, I'm Chathurka, a Frontend developer and UI/UX designer with
                 a passion for creating beautiful, functional, and user-centered
                 digital experiences. With more than 2 years of experience in the
                 field. I am always looking for new and innovative ways to bring
                 my clients' visions to life.
               </p>
-              <p className="text-justify my-3 font-medium">
+              <p className="text-justify my-3 font-normal">
                 I believe that design is about more than just making things look
                 pretty. it's about solving problems and creating intuitive,
                 enjoyable experiences for users
               </p>
 
-              <p className="text-justif font-medium mt-2">
+              <p className="text-justif font-normal mt-2">
                 Whether I'm working on a website, mobile app, or other digital
                 product, I bring my commitment to design excellence and
                 user-centered thinking to every project I work on. I look
@@ -49,11 +77,28 @@ const about = () => {
                 <Image alt="profile" src={profilepic} className="rounded-2xl " />
               </div>
             </div>
-            {/* <div className="col-span-1 flex flex-col justify-start ">
-              <h2 className="text-lg font-bold text-dark uppercase">
-                Biography
-              </h2>
-            </div> */}
+            <div className="col-span-2 flex flex-col justify-between ">
+              <div className="flex flex-col justify-center items-center">
+                <span className="text-6xl font-extrabold">
+                  <AnimatedNumbers value={7} />+
+                </span>
+                <span className="flex text-sm mb-2 justify-center text-center">Satisfied Clients</span>
+              </div>
+
+              <div className="flex flex-col justify-center items-center">
+                <span className="text-6xl font-extrabold">
+                <AnimatedNumbers value={8} />+
+                </span>
+                <span className="flex text-sm mb-2 justify-center text-center">Completed Projects</span>
+              </div>
+
+              <div className="flex flex-col justify-center items-center">
+                <span className="text-6xl font-extrabold">
+                <AnimatedNumbers value={2} />+
+                </span>
+                <span className="flex text-sm mb-2 justify-center text-center">Years of Experience</span>
+              </div>
+            </div>
           </div>
         </Layout>
       </main>
