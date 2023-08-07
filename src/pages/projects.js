@@ -99,7 +99,7 @@ const projects = () => {
               summary="The Land Payment Management System presents an innovative solution to revolutionize the land buying experience. By simplifying payment processes and providing real-time insights, our system enhances efficiency and transparency for both customers and land managers. With streamlined communication and secure payment gateways, the platform fosters stronger relationships and ensures a positive experience throughout the land buying journey. Overall, our project aims to empower stakeholders with an efficient and engaging payment management solution, driving the real estate industry towards enhanced customer satisfaction and operational excellence."
               technology="React JS, Next Js, TypeScript, MUI, Prisma"
               link=""
-              viewPage="https://sevenseaslands.web.lk/login"
+              viewPage="https://sevenseaslands.lk/"
             />
           </div>
 
